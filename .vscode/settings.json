@@ -1,0 +1,16 @@
+{
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar"
+        ],
+        "exclude": [
+            "c:\\Users\\ASUS\\Downloads\\java-json.jar",
+            "lib/java-json.jar",
+            "lib/gson-2.8.2.jar"
+        ]
+    },
+    "java.project.sourcePaths": [
+        "lib",
+        "."
+    ]
+}
