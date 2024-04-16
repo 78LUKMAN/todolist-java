@@ -1,5 +1,4 @@
 /**
- * ====== masih belajar😵 ======
  * @author: Lukmanul Hakim
  * description: Task Manager
  */
@@ -38,7 +37,7 @@ public class TaskManager {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         JSONParser parser = new JSONParser();
-        try (FileReader reader = new FileReader("list/tasks.list")) {
+        try (FileReader reader = new FileReader("list/tasks.json")) {
             JSONArray jsonArray = (JSONArray) parser.parse(reader);
 
             for (Object obj : jsonArray) {
@@ -88,10 +87,11 @@ public class TaskManager {
     }
 
     public void deleteTaskFile() {
-        Path filePath = Paths.get("list/tasks.list");
+        Path filePath = Paths.get("list/tasks.json");
         try {
             if (Files.exists(filePath)) {
                 Files.delete(filePath);
+                tasks.removeAll(tasks);
                 System.out.println("File task.list berhasil dihapus.");
             } else {
                 System.out.println("File task.list tidak ditemukan.");
@@ -108,6 +108,7 @@ public class TaskManager {
             if (!task.getMarkAsDone()) {
                 task.markAsDone(true);
                 System.out.println("Ditandai sebagai selesai: " + task);
+                task.setUpdatedAt(LocalDate.now());
                 saveTask();
                 displayTasks();
             } else {
@@ -123,6 +124,7 @@ public class TaskManager {
             Task task = tasks.get(index);
             clearScreen();
             task.setTitle(newTitle);
+            task.setUpdatedAt(LocalDate.now());
             index += 1;
             System.out.println("Judul tugas '" + index + "' berhasil dirubah menjadi '" + newTitle + "'.\n");
             displayTasks();
@@ -136,6 +138,7 @@ public class TaskManager {
         try {
             Task task = tasks.get(index);
             task.setDescription(newDescription);
+            task.setUpdatedAt(LocalDate.now());
             System.out.println("Deskripsi tugas berhasil dirubah  menjadi '" + newDescription + "'.\n");
             displayTasks();
         } catch (IndexOutOfBoundsException e) {
@@ -177,7 +180,7 @@ public class TaskManager {
         int maxStatusWidth = "Not Complete".length();
 
         if (!tasks.isEmpty()) {
-            System.out.println("=============\n| Your Tasks |\n=============\n");
+            System.out.println("==============\n| Your Tasks |\n==============\n");
             for (Task task : tasks) {
                 maxTitleWidth = Math.max(maxTitleWidth, task.getTitle().length());
                 maxDescriptionWidth = Math.max(maxDescriptionWidth, task.getDescription().length());
@@ -228,7 +231,7 @@ public class TaskManager {
         }
 
         Files.createDirectories(Paths.get("list"));
-        try (FileWriter file = new FileWriter("list/tasks.list")) {
+        try (FileWriter file = new FileWriter("list/tasks.json")) {
             file.write(jsonArray.toJSONString());
         } catch (IOException e) {
             System.out.println("Error while saving tasks: " + e.getMessage());

@@ -1,5 +1,4 @@
 /**
- * ====== masih belajar😵 ======
  * @author: Lukmanul Hakim
  * description: Task
  */

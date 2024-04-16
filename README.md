@@ -44,3 +44,5 @@
 ### 
 ![alt text](img/image-8.png)
 
+### Catatan : 
+kode warna ansi (ansi color) mungkin tidak tidak berjalan dibeberapa terminal.

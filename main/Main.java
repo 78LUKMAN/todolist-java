@@ -1,7 +1,6 @@
 package main;
 
 /**
- * ====== masih belajar😵 ======
  * @author: Lukmanul Hakim
  * description: Main
  */

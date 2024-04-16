@@ -1,6 +1,5 @@
 
 /**
- * ====== masih belajar😵 ======
  * @author: Lukmanul Hakim
  * description: App
  */
