@@ -1,5 +1,5 @@
-# TODO LIST APP
-*created by Lukmanul Hakim*
+# TODO LIST APP - JAVA
+*created by Lukmanul Hakim - giithub.com/78lukman*
 ## FITUR :
 ### CRUD 
 - Create : Untuk membuat atau menambahkan tugas baru
@@ -43,6 +43,24 @@
 ### 
 ### 
 ![alt text](img/image-8.png)
+
+
+## Cara Compile
+masuk ke folder todolist-java, kemudian jalankan perintah : 
+### linux terminal :
+- javac -d . -cp lib/json-simple-1.1.1.jar todo/utils/**/*.java
+
+- javac Main.java
+
+- java -cp lib/json-simple-1.1.1.jar:. Main.java
+
+
+### windows command prompt:
+- javac -cp lib/json-simple-1.1.1.jar todo/utils/task/Task.java todo/utils/manager/TaskManager.java todo/utils/app/App.java
+
+- javac Main.java
+
+- java -cp lib/json-simple-1.1.1.jar;. Main.java
 
 ### Catatan : 
 kode warna ansi (ansi color) mungkin tidak tidak berjalan dibeberapa terminal.

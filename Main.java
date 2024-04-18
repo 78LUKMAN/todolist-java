@@ -1,11 +1,9 @@
-package main;
-
 /**
  * @author: Lukmanul Hakim
  * description: Main
  */
 
- import todo.utils.app.App;
+import todo.utils.app.App;
 
 public class Main {
     public static void main(String[] args) {
