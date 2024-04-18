@@ -13,6 +13,7 @@ import java.util.Comparator;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -29,7 +30,26 @@ public class TaskManager {
 
     public TaskManager() {
         this.tasks = new ArrayList<>();
-        loadTaskFromFile();
+        createFile();
+        File fl = new File("list/tasks.json");
+        if (fl.exists() && fl.length() > 0) {
+            loadTaskFromFile();
+        }
+    }
+
+    public void createFile() {
+        try {
+            Files.createDirectories(Paths.get("list"));
+            if (!Files.exists(Paths.get("list/tasks.json"))) {
+                try {
+                    Files.createFile(Paths.get("list/tasks.json"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (Exception e) {
+            
+        }
     }
 
     public void loadTaskFromFile() {
