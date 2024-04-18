@@ -63,4 +63,4 @@ masuk ke folder todolist-java, kemudian jalankan perintah :
 - java -cp lib/json-simple-1.1.1.jar;. Main.java
 
 ### Catatan : 
-kode warna ansi (ansi color) mungkin tidak tidak berjalan dibeberapa terminal.
+kode warna ANSI (ansi color) dan ASCII mungkin tidak tidak berjalan dibeberapa terminal.
